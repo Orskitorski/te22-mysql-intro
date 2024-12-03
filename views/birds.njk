@@ -1,0 +1,10 @@
+{% extends "layout.njk" %}
+{% block content %}
+<main class="container">
+    <ul>
+        {% for bird in birds %}
+            <li><a href="birds/{{bird.id}}">{{bird.name}}</a></li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock %}
