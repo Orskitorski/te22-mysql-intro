@@ -17,6 +17,8 @@ nunjucks.configure("views", {
   express: app,
 })
 
+app.use(express.static("public"))
+
 app.get("/birds", async (req, res) => {
   // const [birds] = await pool.promise().query('SELECT * FROM birds')
   const [birds] = await pool
@@ -36,7 +38,10 @@ app.get("/birds", async (req, res) => {
 app.get('/birds/new', async (req, res) => {
   const [species] = await pool.promise().query('SELECT * FROM species')
 
-  res.render('birds_form.njk', { species })
+  res.render('birds_form.njk', { 
+    species,
+    title: "New Bird"
+  })
 })
 
 app.get("/birds/:id", async (req, res) => {
@@ -57,8 +62,10 @@ app.get("/birds/:id", async (req, res) => {
   //res.json(bird[0]) // ditt jobb är att skapa en res.render med nunjucks här
 })
 
-app.get("/species_form", async (req, res) => {
-  res.render("species_form.njk")
+app.get("/species/new", async (req, res) => {
+  res.render("species_form.njk", {
+    title: "New Species"
+  })
 })
 
 app.post('/species', async (req, res) => {

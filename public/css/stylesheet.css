@@ -1,0 +1,26 @@
+header{
+    text-align: center;
+}
+
+main {
+    width: 20rem;
+    margin-inline: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    margin-inline: auto;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    margin-bottom: 5rem;
+    
+    label {
+        padding: 1rem;
+    }
+}
